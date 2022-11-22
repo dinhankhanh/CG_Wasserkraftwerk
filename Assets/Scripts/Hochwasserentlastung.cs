@@ -45,13 +45,12 @@ public class Hochwasserentlastung : MonoBehaviour
                     ps4.Play();
                 }
             }
-            else
+            else 
             {
                 if(ps1.isPlaying)
-               ps1.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    ps1.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
                 if (ps2.isPlaying)
                     ps2.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
-                
                 if (ps3.isPlaying)
                     ps3.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
                 if (ps4.isPlaying)
