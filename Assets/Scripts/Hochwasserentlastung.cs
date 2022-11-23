@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Hochwasserentlastung : MonoBehaviour
@@ -11,6 +12,11 @@ public class Hochwasserentlastung : MonoBehaviour
     private ParticleSystem ps2;
     private ParticleSystem ps3;
     private ParticleSystem ps4;
+    private ParticleSystem GA1;
+    private ParticleSystem GA2;
+    private ParticleSystem GA3;
+    private ParticleSystem GA4;
+    private ParticleSystem GA5;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +26,11 @@ public class Hochwasserentlastung : MonoBehaviour
         ps2 = GameObject.Find("ps2").GetComponent<ParticleSystem>();
         ps3 = GameObject.Find("ps3").GetComponent<ParticleSystem>();
         ps4 = GameObject.Find("ps4").GetComponent<ParticleSystem>();
+        GA1 = GameObject.Find("GA1").GetComponent<ParticleSystem>();
+        GA2 = GameObject.Find("GA2").GetComponent<ParticleSystem>();
+        GA3 = GameObject.Find("GA3").GetComponent<ParticleSystem>();
+        GA4 = GameObject.Find("GA4").GetComponent<ParticleSystem>();
+        GA5 = GameObject.Find("GA5").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -56,6 +67,29 @@ public class Hochwasserentlastung : MonoBehaviour
                 if (ps4.isPlaying)
                     ps4.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
             }
+            if (AnimatorIsPlaying("Empty"))
+            {
+                if (GA1.isPlaying)
+                {
+                    GA1.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
+                if (GA2.isPlaying)
+                {
+                    GA2.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
+                if (GA3.isPlaying)
+                {
+                    GA3.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
+                if (GA4.isPlaying)
+                {
+                    GA4.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
+                if (GA5.isPlaying)
+                {
+                    GA5.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
+            }
         }          
     }
 
@@ -70,5 +104,41 @@ public class Hochwasserentlastung : MonoBehaviour
     { 
         return animator.GetCurrentAnimatorStateInfo(0).length >
                animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    }
+
+    public void OnOpenBtOutlet() 
+    {
+        animator.SetTrigger("EmptyLakeTr");
+        if (!GA1.isPlaying)
+        {
+            GA1.Play();
+        }
+        if (!GA2.isPlaying)
+        {
+            GA2.Play();
+        }
+        if (!GA3.isPlaying)
+        {
+            GA3.Play();
+        }
+        if (!GA4.isPlaying)
+        {
+            GA4.Play();
+        }
+        if (!GA5.isPlaying)
+        {
+            GA5.Play();
+        }
+    }
+    
+    public void OnCloseBtOutlet()
+    {
+       /* for (int i = 0; i < GA.Length; i++)
+        {
+            if (GA[i].GetComponent<ParticleSystem>().isPlaying)
+            {
+                GA[i].GetComponent<ParticleSystem>().Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+            }
+        }*/
     }
 }
