@@ -106,30 +106,7 @@ public class Hochwasserentlastung : MonoBehaviour
                animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }
 
-    public void OnOpenBtOutlet() 
-    {
-        animator.SetTrigger("EmptyLakeTr");
-        if (!GA1.isPlaying)
-        {
-            GA1.Play();
-        }
-        if (!GA2.isPlaying)
-        {
-            GA2.Play();
-        }
-        if (!GA3.isPlaying)
-        {
-            GA3.Play();
-        }
-        if (!GA4.isPlaying)
-        {
-            GA4.Play();
-        }
-        if (!GA5.isPlaying)
-        {
-            GA5.Play();
-        }
-    }
+  
     
     public void OnCloseBtOutlet()
     {
